@@ -1,0 +1,3 @@
+[submodule "MjoLniR"]
+	path = src
+	url = https://gerrit.wikimedia.org/r/search/MjoLniR

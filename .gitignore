@@ -1,0 +1,5 @@
+.*.sw?
+/_build
+*.pyc
+__pycache__/
+
