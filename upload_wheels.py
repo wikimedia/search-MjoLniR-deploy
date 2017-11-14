@@ -3,7 +3,7 @@
 Uploads python wheels to archiva
 
 Usage:
-    upload-wheels.py wheels/*.whl
+    upload-wheels.py artifacts/*.whl
 """
 
 from __future__ import print_function

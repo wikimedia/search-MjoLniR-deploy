@@ -23,7 +23,12 @@ mkdir -p "${VENV}"
 virtualenv --python python2.7 $VENV || /bin/true
 $PIP install "${MJOLNIR}"
 $PIP freeze --local | grep -v mjolnir | grep -v pkg-resources > $REQUIREMENTS
-$PIP install wheel
+$PIP install pip wheel
+# Debian jessie based hosts require updated pip and wheel packages or they will
+# refuse to install some packages (numpy, scipy, maybe others)
+$PIP wheel --find-links "${WHEEL_DIR}" \
+        --wheel-dir "${WHEEL_DIR}" \
+        pip wheel
 $PIP wheel --find-links "${WHEEL_DIR}" \
         --wheel-dir "${WHEEL_DIR}" \
         --requirement "${REQUIREMENTS}"

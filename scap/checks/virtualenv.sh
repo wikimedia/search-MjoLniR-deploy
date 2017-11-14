@@ -17,15 +17,30 @@ PIP="${VENV}/bin/pip"
 mkdir -p "$VENV"
 virtualenv --never-download --python python2.7 $VENV || /bin/true
 
+# Debian jessie based hosts need updated versions of pip and wheel or they will
+# fail to install some binary packages (numpy, scipy, maybe others)
+$PIP install \
+    -vv \
+    --no-index \
+    --find-links "${WHEEL_DIR}" \
+    --upgrade \
+    --force-reinstall \
+    pip wheel
 # Install or upgrade our packages
 $PIP install \
+    -vv \
     --no-index \
     --find-links "${WHEEL_DIR}" \
     --upgrade \
     --force-reinstall \
     -r "${REQUIREMENTS}"
 
-$PIP install --upgrade --no-deps "${MJOLNIR_DIR}"
+$PIP install \
+    -vv \
+    --no-index \
+    --upgrade \
+    --no-deps \
+    "${MJOLNIR_DIR}"
 
 # Build a .zip of the virtualenv that can be shipped to spark workers
 cd "${VENV}"
