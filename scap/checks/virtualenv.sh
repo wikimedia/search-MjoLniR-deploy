@@ -19,7 +19,6 @@ virtualenv --never-download --python python2.7 $VENV || /bin/true
 
 # Install or upgrade our packages
 $PIP install \
-    --no-cache-dir \
     --no-index \
     --find-links "${WHEEL_DIR}" \
     --upgrade \
