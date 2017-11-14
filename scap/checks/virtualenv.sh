@@ -13,9 +13,13 @@ MJOLNIR_ZIP="${BASE_DIR}/mjolnir_venv.zip"
 
 PIP="${VENV}/bin/pip"
 
-# Ensure that the virtual environment exists
-mkdir -p "$VENV"
-virtualenv --never-download --python python2.7 $VENV || /bin/true
+# Ensure that the virtual environment exists. Don't recreate if already
+# existing, as this will try and downgrade pip on debian jessie from the one
+# installed later which then breaks pip.
+if [ ! -x "$PIP" ]; then
+    mkdir -p "$VENV"
+    virtualenv --never-download --python python2.7 $VENV || /bin/true
+fi
 
 # Debian jessie based hosts need updated versions of pip and wheel or they will
 # fail to install some binary packages (numpy, scipy, maybe others)
