@@ -5,7 +5,7 @@ checks:
         timeout: 300
         group: relforge
         command: bash /srv/deployment/search/mjolnir/deploy/scap/checks/virtualenv.sh
-    virtualenv_analytics
+    virtualenv_analytics:
         type: command
         stage: promote
         timeout: 300
