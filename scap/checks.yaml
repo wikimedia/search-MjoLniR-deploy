@@ -11,4 +11,9 @@ checks:
         timeout: 300
         group: analytics
         command: bash /srv/deployment/search/mjolnir/deploy/scap/checks/virtualenv.sh
-
+    spark_config:
+        type: command
+        stage: promote
+        timeout: 10
+        group: analytics
+        command: cp /srv/deployment/search/mjolnir/deploy/spark.yaml /etc/mjolnir/spark.yaml
