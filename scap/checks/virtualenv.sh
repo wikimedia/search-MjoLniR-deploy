@@ -52,11 +52,3 @@ $PIP install \
     --upgrade \
     --no-deps \
     "${MJOLNIR_DIR}"
-
-# Build a .zip of the virtualenv that can be shipped to spark workers if
-# we are on a host with spark installed.
-if command -v spark-submit > /dev/null; then
-    cd "${VENV}"
-    zip -qr ${MJOLNIR_ZIP}.tmp .
-    mv -T ${MJOLNIR_ZIP}.tmp ${MJOLNIR_ZIP}
-fi

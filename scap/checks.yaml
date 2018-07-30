@@ -1,4 +1,10 @@
 checks:
+    virtualenv_cirrus:
+        type: command
+        stage: promote
+        timeout: 300
+        group: cirrus
+        command: bash /srv/deployment/search/mjolnir/deploy/scap/checks/virtualenv.sh
     virtualenv_relforge:
         type: command
         stage: promote
@@ -16,4 +22,5 @@ checks:
         stage: promote
         timeout: 10
         group: analytics
-        command: cp /srv/deployment/search/mjolnir/deploy/spark.yaml /etc/mjolnir/spark.yaml
+        command: bash /srv/deployment/search/mjolnir/deploy/scap/checks/spark.sh
+
