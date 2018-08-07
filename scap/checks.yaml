@@ -20,7 +20,7 @@ checks:
     spark_config:
         type: command
         stage: promote
-        timeout: 10
+        timeout: 300
         group: analytics
         command: bash /srv/deployment/search/mjolnir/deploy/scap/checks/spark.sh
 
