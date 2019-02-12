@@ -1,5 +1,5 @@
 # Configuration shared by all training groups and
-working_dir: /srv/deployment/search/mjolnir
+working_dir: /srv/deployment/search/mjolnir/deploy
 global:
     environment:
         PYSPARK_PYTHON: venv/bin/python

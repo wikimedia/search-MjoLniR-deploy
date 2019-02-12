@@ -6,9 +6,9 @@ set -o nounset
 set -o pipefail
 
 # The base dir is unique per deployment
-# TODO: Is PWD always the new checkout? seems plausible
-DEPLOY_DIR="${PWD}"
+DEPLOY_DIR="${SCAP_REV_PATH}"
 VENV="${DEPLOY_DIR}/venv"
+OLD_VENV_DIR="/srv/deployment/search/mjolnir/venv"
 MJOLNIR_DIR="${DEPLOY_DIR}/src"
 WHEEL_DIR="${DEPLOY_DIR}/artifacts"
 REQUIREMENTS="${DEPLOY_DIR}/requirements-frozen.txt"
@@ -47,3 +47,8 @@ $PIP install \
     --upgrade \
     --no-deps \
     "${MJOLNIR_DIR}"
+
+# The systemd units running mjolnir daemons still refer to the old
+# virtualenv location. Maintain both until the cleanups are deployed.
+rm -rf "$OLD_VENV_DIR"
+ln -s "$VENV_DIR" "$OLD_VENV_DIR"

@@ -1,25 +1,26 @@
 checks:
     virtualenv_cirrus:
-        type: command
-        stage: promote
+        type: script
+        stage: fetch
         timeout: 300
         group: cirrus
-        command: bash /srv/deployment/search/mjolnir/deploy/scap/checks/virtualenv.sh
+        command: virtualenv.sh
     virtualenv_relforge:
-        type: command
-        stage: promote
+        type: script
+        stage: fetch
         timeout: 300
         group: relforge
-        command: bash /srv/deployment/search/mjolnir/deploy/scap/checks/virtualenv.sh
+        command: virtualenv.sh
     virtualenv_analytics:
         type: script
         stage: fetch
+        timeout: 300
         group: analytics
         command: virtualenv.sh
     spark_config:
         type: command
-        stage: promote
+        stage: fetch
         timeout: 300
         group: analytics
-        command: bash /srv/deployment/search/mjolnir/deploy/scap/checks/spark.sh
+        command: spark.sh
 
