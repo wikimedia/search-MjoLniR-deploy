@@ -12,11 +12,10 @@ checks:
         group: relforge
         command: bash /srv/deployment/search/mjolnir/deploy/scap/checks/virtualenv.sh
     virtualenv_analytics:
-        type: command
-        stage: promote
-        timeout: 300
+        type: script
+        stage: fetch
         group: analytics
-        command: bash /srv/deployment/search/mjolnir/deploy/scap/checks/virtualenv.sh
+        command: virtualenv.sh
     spark_config:
         type: command
         stage: promote

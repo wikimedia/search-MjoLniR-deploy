@@ -1,24 +1,19 @@
+#!/bin/bash
+
 set -e
 set -o errexit
 set -o nounset
 set -o pipefail
 
-BASE_DIR="/srv/deployment/search/mjolnir"
-VENV="${BASE_DIR}/venv"
-DEPLOY_DIR="${BASE_DIR}/deploy"
-MJOLNIR_DIR="${BASE_DIR}/deploy/src"
+# The base dir is unique per deployment
+# TODO: Is PWD always the new checkout? seems plausible
+DEPLOY_DIR="${PWD}"
+VENV="${DEPLOY_DIR}/venv"
+MJOLNIR_DIR="${DEPLOY_DIR}/src"
 WHEEL_DIR="${DEPLOY_DIR}/artifacts"
 REQUIREMENTS="${DEPLOY_DIR}/requirements-frozen.txt"
-MJOLNIR_ZIP="${BASE_DIR}/mjolnir_venv.zip"
 
 PIP="${VENV}/bin/pip"
-
-# Check if we have an old python2 virtualenv
-if [ -x "$PIP" ]; then
-    if "${VENV}/bin/python" -c 'import sys; sys.exit(sys.version_info[0] == 3)'; then
-        rm -rf "${VENV}"
-    fi
-fi
 
 # Ensure that the virtual environment exists. Don't recreate if already
 # existing, as this will try and downgrade pip on debian jessie from the one
