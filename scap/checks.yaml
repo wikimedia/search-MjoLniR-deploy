@@ -18,7 +18,7 @@ checks:
         group: analytics
         command: virtualenv.sh
     spark_config:
-        type: command
+        type: script
         stage: fetch
         timeout: 300
         group: analytics
