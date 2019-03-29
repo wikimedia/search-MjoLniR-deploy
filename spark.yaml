@@ -136,8 +136,8 @@ global:
                 # than requestsed, 35M turns into 25 or 30M.
                 samples-per-wiki: 35000000
                 kafka: "%(kafka_brokers)s"
-                kafka-request-topic: "%(kafka_request_topic)"
-                kafka-result-topic: "%(kafka_result_topic)"
+                kafka-request-topic: "%(kafka_request_topic)s"
+                kafka-result-topic: "%(kafka_result_topic)s"
                 min-sessions: "%(min_sessions_per_query)s"
         collect_features:
             spark_command: "%(SPARK_HOME)s/bin/spark-submit"
@@ -150,8 +150,8 @@ global:
                 input: "%(hdfs_labeled_data_path)s"
                 output-dir: "%(hdfs_features_data_path)s"
                 kafka: "%(kafka_brokers)s"
-                kafka-request-topic: "%(kafka_request_topic)"
-                kafka-result-topic: "%(kafka_result_topic)"
+                kafka-request-topic: "%(kafka_request_topic)s"
+                kafka-result-topic: "%(kafka_result_topic)s"
                 feature-definitions: "%(feature_definitions)s"
         feature_selection:
             spark_command: "%(SPARK_HOME)s/bin/spark-submit"
