@@ -24,6 +24,7 @@ rm -rf "${BUILD}"
 mkdir -p "${VENV}"
 virtualenv --python "${PYTHON_PATH:-python3}" "${VENV}"
 
+$PIP install -r "${REQUIREMENTS_FROZEN}"
 $PIP install "${MJOLNIR}"
 $PIP install -r "${REQUIREMENTS}"
 $PIP freeze --local | grep -v mjolnir | grep -v pkg-resources > "${REQUIREMENTS_FROZEN}"
