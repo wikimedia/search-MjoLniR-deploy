@@ -8,7 +8,6 @@ set -o pipefail
 # The base dir is unique per deployment
 DEPLOY_DIR="${SCAP_REV_PATH}"
 VENV_DIR="${DEPLOY_DIR}/venv"
-OLD_VENV_DIR="/srv/deployment/search/mjolnir/venv"
 MJOLNIR_DIR="${DEPLOY_DIR}/src"
 WHEEL_DIR="${DEPLOY_DIR}/artifacts"
 REQUIREMENTS="${DEPLOY_DIR}/requirements-frozen.txt"
@@ -47,5 +46,3 @@ $PIP install \
     --upgrade \
     --no-deps \
     "${MJOLNIR_DIR}"
-
-rm -rf "$OLD_VENV_DIR"
