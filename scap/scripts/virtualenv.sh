@@ -48,7 +48,4 @@ $PIP install \
     --no-deps \
     "${MJOLNIR_DIR}"
 
-# The systemd units running mjolnir daemons still refer to the old
-# virtualenv location. Maintain both until the cleanups are deployed.
 rm -rf "$OLD_VENV_DIR"
-ln -s "$VENV_DIR" "$OLD_VENV_DIR"
