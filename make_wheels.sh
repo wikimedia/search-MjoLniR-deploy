@@ -22,7 +22,9 @@ export SOURCE_DATE_EPOCH=315576060
 
 rm -rf "${BUILD}"
 mkdir -p "${VENV}"
-virtualenv --python "${PYTHON_PATH:-python3}" "${VENV}"
+virtualenv --python "${PYTHON_PATH:-python3.7}" "${VENV}"
+# PYTHON_PATH must refer to 3.7, it's the only one available on debian buster
+test -x "${VENV}/bin/python3.7"
 
 $PIP install -r "${REQUIREMENTS_FROZEN}"
 $PIP install "${MJOLNIR}"
