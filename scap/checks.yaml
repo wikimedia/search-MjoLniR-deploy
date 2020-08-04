@@ -1,15 +1,9 @@
 checks:
-    virtualenv_cirrus:
+    virtualenv_loader:
         type: script
         stage: fetch
         timeout: 300
-        group: cirrus
-        command: virtualenv.sh
-    virtualenv_relforge:
-        type: script
-        stage: fetch
-        timeout: 300
-        group: relforge
+        group: loader
         command: virtualenv.sh
     virtualenv_analytics:
         type: script
