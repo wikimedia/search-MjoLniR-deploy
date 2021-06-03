@@ -5,16 +5,4 @@ checks:
         timeout: 300
         group: loader
         command: virtualenv.sh
-    virtualenv_analytics:
-        type: script
-        stage: fetch
-        timeout: 300
-        group: analytics
-        command: virtualenv.sh
-    spark_config:
-        type: script
-        stage: fetch
-        timeout: 300
-        group: analytics
-        command: spark.sh
 

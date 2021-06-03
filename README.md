@@ -19,6 +19,3 @@ Process for updating build:
   replaced.
 * Run `git add artifacts/*.whl`
 * Commit and submit to gerrit
-
-
-
