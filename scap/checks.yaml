@@ -1,8 +1,8 @@
 checks:
-    virtualenv_loader:
+    conda_env_loader:
         type: script
         stage: fetch
         timeout: 300
         group: loader
-        command: virtualenv.sh
+        command: fetch_conda.sh
 

@@ -1,5 +1,4 @@
 .*.sw?
-/_build
-*.pyc
-__pycache__/
+/venv
+/conda_venv.tgz
 

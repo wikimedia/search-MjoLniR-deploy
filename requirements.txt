@@ -1,2 +1,0 @@
-python-logstash==0.4.6
-python-snappy
